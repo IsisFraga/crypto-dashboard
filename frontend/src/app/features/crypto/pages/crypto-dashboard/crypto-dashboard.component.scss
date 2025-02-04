@@ -1,0 +1,89 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.error-message {
+  color: #f44336;
+  padding: 16px;
+  text-align: center;
+  font-size: 16px;
+  background-color: rgba(244, 67, 54, 0.1);
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+mat-card {
+  margin: 16px;
+  
+  mat-card-content {
+    padding: 16px;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.price-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+
+  div {
+    padding: 8px;
+    font-size: 16px;
+
+    .positive {
+      color: #4CAF50;
+    }
+    .negative {
+      color: #f44336;
+    }
+  }
+}
+
+mat-form-field {
+  width: 200px;
+  margin-bottom: 24px;
+}
+
+app-crypto-chart {
+  display: block;
+  margin-top: 24px;
+  height: 400px;
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  mat-card {
+    margin: 8px;
+  }
+
+  .price-stats {
+    grid-template-columns: 1fr;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  app-crypto-chart {
+    height: 300px;
+  }
+}
