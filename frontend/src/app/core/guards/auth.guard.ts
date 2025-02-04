@@ -1,13 +1,14 @@
 import { inject } from '@angular/core';
-import { Router, type CanActivateFn } from '@angular/router';
+import { Router, CanActivateFn } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { map } from 'rxjs';
+import { map, take } from 'rxjs';
 
-export const authGuard: CanActivateFn = (route, state) => {
-  const router = inject(Router);
+export const AuthGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
+  const router = inject(Router);
 
-  return authService.isAuthenticated$().pipe(
+  return authService.isAuthenticated$.pipe(
+    take(1),
     map(isAuthenticated => {
       if (!isAuthenticated) {
         router.navigate(['/auth/login']);
@@ -18,14 +19,15 @@ export const authGuard: CanActivateFn = (route, state) => {
   );
 };
 
-export const loginGuard: CanActivateFn = (route, state) => {
-  const router = inject(Router);
+export const LoginGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
+  const router = inject(Router);
 
-  return authService.isAuthenticated$().pipe(
+  return authService.isAuthenticated$.pipe(
+    take(1),
     map(isAuthenticated => {
       if (isAuthenticated) {
-        router.navigate(['/crypto']);
+        router.navigate(['/crypto']); 
         return false;
       }
       return true;
