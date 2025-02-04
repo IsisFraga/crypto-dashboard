@@ -36,7 +36,7 @@ Aplicação Angular moderna que demonstra autenticação JWT com JWKS e visualiz
 
 1. Clone o repositório:
 ```bash
-git clone [https://github.com/IsisFraga/crypto-dashboard]
+git clone https://github.com/IsisFraga/crypto-dashboard
 cd crypto-dashboard
 ```
 
@@ -55,7 +55,8 @@ npm install
 ```bash
 # Backend
 cp .env
-# Por se tratar de um projeto fictício, não utilizei o padrão .env.example, o arquivo .env já está configurado.
+# Por se tratar de um projeto fictício, não utilizei o padrão .env.example,
+# o arquivo .env já está configurado.
 ```
 
 4. Inicie a aplicação:
